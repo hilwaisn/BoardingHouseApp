@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BoardingHouseApp.Migrations
 {
     /// <inheritdoc />
-    public partial class tabeltable : Migration
+    public partial class buat : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

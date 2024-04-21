@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BoardingHouseApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240421090517_tabeltable")]
-    partial class tabeltable
+    [Migration("20240421164255_buat")]
+    partial class buat
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

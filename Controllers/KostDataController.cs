@@ -58,7 +58,7 @@ namespace BoardingHouseApp.Controllers
                         return View(data);
                     }
 
-                    var fileFolder = Path.Combine(_env.WebRootPath, "Kost");
+                    var fileFolder = Path.Combine(_env.WebRootPath, "Upload");
 
                     if (!Directory.Exists(fileFolder))
                     {
@@ -125,14 +125,26 @@ namespace BoardingHouseApp.Controllers
             return View(kosts);
         }
 
-        [HttpPost]
-		public async Task<IActionResult> Search(string name, decimal minPrice, decimal maxPrice)
-		{
-			var kosts = await _context.KostData
-				.Where(k => k.Name.Contains(name) || k.Price >= minPrice && k.Price <= maxPrice)
-				.ToListAsync();
+        [HttpGet("KostData/Index")]
+        public async Task<IActionResult> Detail(string search)
+        {
+            IQueryable<KostData> kosts = _context.KostData;
 
-			return View("SearchResult", kosts);
-		}
-	}
+            if (!string.IsNullOrEmpty(search))
+            {
+                string[] prices = search.Split('-');
+                if (prices.Length == 2 && decimal.TryParse(prices[0], out decimal lowPrice) && decimal.TryParse(prices[1], out decimal highPrice))
+                {
+                    kosts = kosts.Where(k => k.Name.Contains(search) || (k.Price >= lowPrice && k.Price <= highPrice));
+                }
+                else
+                {
+                    kosts = kosts.Where(k => k.Name.Contains(search));
+                }
+            }
+
+            var kostList = await kosts.ToListAsync();
+            return View(kostList);
+        }
+    }
 }

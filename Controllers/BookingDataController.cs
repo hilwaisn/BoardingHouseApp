@@ -28,6 +28,7 @@ namespace BoardingHouseApp.Controllers
             return View(bookings);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit([FromForm] BookingData booking)
         {
             var ebook = _context.BookingDates.FirstOrDefault(y => y.Id == booking.Id);
@@ -53,10 +54,17 @@ namespace BoardingHouseApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Create(int id)
+        /*public IActionResult Create(int id)
         {
-            var getIdKostData = _context.KostData.Where(dk => dk.Id == id).FirstOrDefault();
+            var getIdKostData = _context.KostData.Where(dk => dk.Id == 1).FirstOrDefault();
+            Console.WriteLine("test "+id);
             return View(getIdKostData);
+        }*/
+
+        public IActionResult Create()
+        {
+            var kosts = _context.KostData.ToList();
+            return View(kosts);
         }
 
         [HttpPost]
@@ -85,10 +93,12 @@ namespace BoardingHouseApp.Controllers
                 await _context.SaveChangesAsync();
 
                 TempData["Success"] = "Booking berhasil ditambahkan.";
+                Console.WriteLine("test");
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return RedirectToAction("Error", "Home");
             }
         } 

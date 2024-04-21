@@ -1,4 +1,5 @@
-﻿@model BoardingHouseApp.Models.KostData
+﻿@model List<KostData>
+
 @{
     Layout = "_Layout";
 }
@@ -11,8 +12,7 @@
             </div>
 
             <div class="card-body">
-                <form enctype="multipart/form-data" method="post" action="/BookingData/Create">
-                    <input type="text" value="@Model?.Id" name="DataKost" hidden>
+                <form enctype="multipart/form-data" method="post" asp-action="Create" asp-controller="BookingData">
                     <div class="mb-3">
                         <label>Nama</label>
                         <input type="text" name="Name" class="form-control" />
@@ -32,6 +32,15 @@
                     <div class="mb-3">
                         <label>Jumlah Kamar</label>
                         <input type="text" name="Count" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <select name="DataKost">
+                            <option value="">Select Kost</option>
+                            @foreach (var kost in @Model)
+                            {
+                            <option value="@kost.Id">@kost.Name</option>
+                            }
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-success">
                         Simpan
