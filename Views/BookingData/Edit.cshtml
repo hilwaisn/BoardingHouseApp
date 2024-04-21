@@ -1,0 +1,43 @@
+﻿@model BoardingHouseApp.Models.BookingData
+
+@{
+    Layout = "_LayoutAdmin";
+}
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h3>Edit Booking Lily Kost🌺</h3>
+            </div>
+
+            <div class="card-body">
+                <form enctype="multipart/form-data" method="post" asp-action="Create" asp-controller="DataBooking">
+                    <input type="text" value="Model.Id" name="idKamar" hidden>
+                    <div class="mb-3">
+                        <label>Nama</label>
+                        <input type="text" name="Name" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Nomor Telepon</label>
+                        <input type="text" name="PhoneNumber" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Nomor Induk Kependudukan</label>
+                        <input type="text" name="IDCardNumber" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Pekerjaan</label>
+                        <input type="text" name="Employment" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Jumlah Kamar</label>
+                        <input type="text" name="KostData.Room" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        Save
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

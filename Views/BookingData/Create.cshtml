@@ -1,0 +1,44 @@
+﻿@model BoardingHouseApp.Models.KostData
+@{
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h3>Booking Lily Kost🌺</h3>
+            </div>
+
+            <div class="card-body">
+                <form enctype="multipart/form-data" method="post" action="/BookingData/Create">
+                    <input type="text" value="@Model?.Id" name="DataKost" hidden>
+                    <div class="mb-3">
+                        <label>Nama</label>
+                        <input type="text" name="Name" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Nomor Telepon</label>
+                        <input type="text" name="PhoneNumber" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Nomor Induk Kependudukan</label>
+                        <input type="text" name="IDCardNumber" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Pekerjaan</label>
+                        <input type="text" name="Work" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Jumlah Kamar</label>
+                        <input type="text" name="Count" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-success">
+                        Simpan
+                    </button>
+                    <a href="/Home/Index" class="btn btn-primary">Kembali</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

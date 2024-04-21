@@ -1,0 +1,44 @@
+﻿@model BoardingHouseApp.Models.KostData
+@{
+    Layout = "_LayoutAdmin";
+}
+<div class="card">
+    <div class="card-header">
+        <h3>Edit Kost Lily🌺</h3>
+    </div>
+    <div class="card-body">
+        <form method="post" action="/KostData/Edit">
+            <label>Nama</label>
+            <input type="text"
+                   name="Name"
+                   value="@Model.Name"
+                   class="form-control" />
+
+            <label>Alamat</label>
+            <input type="text"
+                   name="Address"
+                   value="@Model.Address"
+                   class="form-control" />
+
+            <label>Harga</label>
+            <input type="text"
+                   name="Price"
+                   value="@Model.Price"
+                   class="form-control" />
+
+            <label>Jumlah Kamar</label>
+            <input type="text"
+                   name="Room"
+                   value="@Model.Room"
+                   class="form-control" />
+
+            <input type="hidden"
+                   name="Id"
+                   value="@Model.Id" />
+
+            <button type="submit" class="btn btn-success">
+                Edit
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model List<KostData>
+
+<section class="py-1 text-center container">
+    <div class="row py-lg-1">
+        <h1 class="fw-light">🌺Lily Kost🌺</h1>
+        <div class="col-lg-4 col-md-6 mx-auto">
+            <p class="lead text-muted">
+                🌺Lily Kost adalah sebuah kos-kosan yang terletak di Kota Semarang. 
+                Kami memanfaatkan teknologi untuk memudahkan calon anak kos dalam proses
+                pemesanan dan pembayaran kos. Saat ini, Lily Kost menyediakan lebih dari
+                50 kamar kos yang tersebar di lebih dari 10 kecamatan di Kota Semarang. 
+                Kami juga menawarkan layanan manajemen properti, seperti Simetris21 dan
+                Blue Eneergy, untuk memberikan pilihan kos eksklusif atau kos murah 
+                sesuai dengan kebutuhan calon penghuni.
+
+            <p class="lead text-muted">
+                Fasilitas yang akan kamu dapatkan di Lily Kost mirip dengan fasilitas kos
+                pada umumnya. Setiap kamar memiliki ukuran 3x5 meter persegi dan dilengkapi
+                dengan tempat tidur single berukuran 200x90 cm serta 1 bantal tidur dan 1
+                bantal guling. Kamu juga akan mendapatkan almari, meja belajar, serta kamar
+                mandi dalam yang nyaman dan bersih. Selain itu, tersedia sirkulasi udara 
+                yang baik di dalam kamar, akses WiFi, parkiran yang luas, dan dapur umum 
+                yang dapat digunakan.
+            </p>
+            <p class="lead text-muted">
+                Lily Kost berkomitmen untuk menyajikan informasi yang akurat mengenai 
+                ketersediaan kamar, fasilitas yang terperinci, serta foto dan harga kos yang
+                jelas. Kami juga menyediakan fitur virtual tour untuk memberikan kenyamanan 
+                dalam proses pencarian dan pemesanan kos.
+            </p>
+            <p class="lead text-muted">
+                Jadi, jika kamu mencari kos-kosan yang nyaman dan terjangkau di Kota Semarang, 
+                Lily Kost adalah pilihan yang tepat untukmu.🌺
+            </p>
+        </div>
+    </div>
+</section>
+
+@* <h1>Booking ceunah</h1>
+@foreach (var kost in Model)
+{
+    <h3>@kost.Name</h3>
+    <span>@kost.Price</span>
+    <span>@kost.Address</span>
+    <span>@kost.Room</span>
+    <img src="~/Kost/@kost.Photo" />
+    <a href="/bookingdata/create/@kost.Id">Booking sekarang</a>
+} *@

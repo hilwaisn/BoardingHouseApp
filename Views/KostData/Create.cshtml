@@ -1,0 +1,43 @@
+﻿@model BoardingHouseApp.Models.KostForm
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="row">
+    <div class="col-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Add Lily Kost🌺</h3>
+            </div>
+            <div class="card-body">
+                <form enctype="multipart/form-data" method="post" action="/KostData/Create">
+                    <div class="mb-2">
+                        <label>Nama</label>
+                        <input type="text" name="Name" class="form-control" />
+                    </div>
+                    <div class="mb-2">
+                        <label>Alamat</label>
+                        <input type="text" name="Address" class="form-control" />
+                    </div>
+                    <div class="mb-2">
+                        <label>Harga</label>
+                        <input type="text" name="Price" class="form-control" />
+                    </div>
+                    <div class="mb-2">
+                        <label>Jumlah Kamar</label>
+                        <input type="text" name="Room" class="form-control" />
+                    </div>
+                    <div class="mb-2">
+                        <label>Gambar</label>
+                        <input type="file" name="Photo" class="form-control" accept=".png,.jpg,.jpeg" />
+                    </div>
+                    <div class="mb-2">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

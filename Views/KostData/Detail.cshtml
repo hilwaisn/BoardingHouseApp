@@ -1,0 +1,37 @@
+﻿@model List<KostData>
+@{
+    Layout = "_Layout";
+}
+<div class="card">
+    <div class="card-header">
+        <h3>Daftar Kost - Lily Kost🌺</h3>
+    </div>
+    <div class="card-body">
+        <form action="Index" method="get">
+            <input type="text" name="search" class="form-control" placeholder="Ketik nama / harga...">
+            <button type="submit" class="btn-success">Search</button>
+        </form>
+        <table class="table">
+            <tr>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Harga Per Bulan</th>
+                <th>Jumlah Kamar Tersedia</th>
+                <th>Gambar</th>
+            </tr>
+
+            @foreach (var kost in Model)
+            {
+                <tr>
+                    <td>@kost.Name</td>
+                    <td>@kost.Address</td>
+                    <td>@kost.Price</td>
+                    <td>@kost.Room</td>
+                    <td>
+                        <img src="@Url.Content("~/Upload/" + kost.Photo)" alt="Gambar Kost">
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

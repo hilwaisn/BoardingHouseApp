@@ -1,0 +1,36 @@
+﻿@model List<KostData>
+@{
+    Layout = "_LayoutAdmin";
+}
+<div class="card">
+    <div class="card-header">
+        <h3>Data Kost - Lily Kost🌺</h3>
+    </div>
+    <div class="card-body">
+        <a href="kostdata/create" class="btn btn-primary">Add</a>
+        <table class="table">
+            <tr>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Harga Per Bulan</th>
+                <th>Jumlah Kamar Tersedia</th>
+                <th>Gambar</th>
+            </tr>
+
+            @foreach (var kost in Model)
+            {
+                <tr>
+                    <td>@kost.Name</td>
+                    <td>@kost.Address</td>
+                    <td>@kost.Price</td>
+                    <td>@kost.Room</td>
+                    <td><img src="~/Upload/@kost.Photo" alt="Gambar Kost"></td>
+                    <td>
+                        <a href="kostdata/edit/@kost.Id" class="btn btn-primary">Edit</a>
+                        <a href="kostdata/delete/@kost.Id" class="btn btn-danger">Hapus</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
